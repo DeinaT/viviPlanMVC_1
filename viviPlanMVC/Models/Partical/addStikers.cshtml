@@ -1,0 +1,29 @@
+﻿@model viviPlanMVC.Models.Stickers
+
+<div class="sticker">
+    @foreach (var onemark in Model.liMark)
+    {
+        <div class="label" style="background: @onemark.Color_Background; color: #FFFFFF"><span class="label-name">@onemark.Title</span></div>
+    }
+    <div class="close"><img src="~/Content/Image/close.png"></div>
+    <h2 class="title">@Model.Title</h2>
+    <p class="date">19.11.2016</p>
+    <div class="indicator"></div>
+    <p class="description">@Model.Description</p>
+    <p class="icons">
+        <img src="~/Content/Image/attachments.png">0 <img src="~/Content/Image/chat.png">0
+    </p>
+    <div class="attachments">
+    </div>
+    <div class="members">
+    </div>
+    <div class="comments">
+        <h2>Комментарии</h2>
+        <div class="new-comment">
+            <div class="ava"><img src="~/Content/Image/girl1.png"></div>
+            <textarea type="text" placeholder="Введите текст комментария"></textarea>
+        </div>
+        <div class="button"><button>Отправить</button></div>
+        <div class="clear"></div>
+    </div>
+</div>

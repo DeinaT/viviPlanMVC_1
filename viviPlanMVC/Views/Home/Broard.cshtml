@@ -1,0 +1,418 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<viviPlanMVC.Models.Stickers>[]
+<div class="overlay"></div>
+<div class="overlay2"></div>
+<div class="overlay3"></div>
+<div class="top-title">
+    <h2><img class="logo" src="~/Content/Image/logo.png">@ViewData["Title"] <a title="Редактировать"><img src="~/Content/Image/edit.png"></a></h2>
+</div>
+<div class="wrap">
+    <div class="panel-label">
+        <button class="cmn-toggle-switch cmn-toggle-switch__htx">
+            <span>toggle menu</span>
+        </button>
+    </div>
+    <div class="panel">
+        <div class="avatar"><img src="~/Content/Image/girl1.png"></div>
+        <div class="name"><h2>Маша Иванова</h2></div>
+        <div class="list">
+            <div class="filter-link"><a><img src="~/Content/Image/filter.png">Фильтр</a></div>
+            <div class="labels-link"><a><img src="~/Content/Image/tag.png">Метки</a></div>
+            <div><a><img src="~/Content/Image/settings.png">Настройки</a></div>
+            <div class="separator"></div>
+            <div><a><img src="~/Content/Image/exit.png">Выход</a></div>
+        </div>
+    </div>
+    <div class="panel filter">
+        <div class="name"><h1>Фильтр</h1><img class="close-cross" src="~/Content/Image/close.png"></div>
+        <div class="block-filter">
+            <div class="block-filter-title filter-label"><h2>По меткам</h2></div>
+            <div class="block-filter-content">
+                <div class="line"><label><input type="checkbox" /><div class="label-color green"></div>Зеленая</label></div>
+                <div class="clear"></div>
+                <div class="line"><label><input type="checkbox" /><div class="label-color blue"></div>Синяя</label></div>
+                <div class="clear"></div>
+                <div class="line"><label><input type="checkbox" /><div class="label-color red"></div>Красная</label></div>
+                <div class="clear"></div>
+                <div class="line"><label><input type="checkbox" /><div class="label-color yellow"></div>Желтая</label></div>
+                <div class="clear"></div>
+            </div>
+            <div class="block-filter-title filter-time"><h2>По сроку</h2></div>
+            <div class="block-filter-content">
+                <div class="line"><label><input type="checkbox" />Срок истекает в течение суток</label></div>
+                <div class="clear"></div>
+                <div class="line"><label><input type="checkbox" />Срок истекает в течение недели</label></div>
+                <div class="clear"></div>
+                <div class="line"><label><input type="checkbox" />Срок истекает в течение месяца</label></div>
+                <div class="clear"></div>
+                <div class="line"><label><input type="checkbox" />Просроченные</label></div>
+                <div class="clear"></div>
+                <div class="line"><label><input type="checkbox" />Без срока</label></div>
+                <div class="clear"></div>
+            </div>
+            <div class="block-filter-title filter-member"><h2>По участникам</h2></div>
+            <div class="block-filter-content" id="MembesAll">
+                <!--<div class="line"><label><input type="checkbox"/><div class="guy filter"><img src="~/Content/Image/girl1.png"></div>Маша</label></div>
+                <div class="clear"></div>
+
+                <div class="line"><label><input type="checkbox"/><div class="guy filter"><img src="~/Content/Image/girl3.png"></div>Енот Вася</label></div>
+                <div class="clear"></div>
+
+                <div class="line"><label><input type="checkbox"/><div class="guy filter"><img src="~/Content/Image/boy5.png"></div>Коля</label></div>
+                <div class="clear"></div>
+
+                <div class="line"><label><input type="checkbox"/><div class="guy filter"><img src="~/Content/Image/boy3.png"></div>Саня</label></div>
+                <div class="clear"></div>-->
+            </div>
+        </div>
+    </div>
+    <div class="panel labels">
+        <div class="name"><h1>Метки</h1><img class="close-cross" src="~/Content/Image/close.png"></div>
+        <div class="block-labels">
+            <div class="search"><input type="search" placeholder="Поиск меток..."></div>
+
+            <div class="block-filter-content" id="panelMet">
+                <a title="Редактировать"><div class="line"><div class="label-color green">Зеленая</div><img src="~/Content/Image/edit.png"></div></a>
+                <div class="clear"></div>
+
+                <a title="Редактировать"><div class="line"><div class="label-color blue">Синяя</div><img src="~/Content/Image/edit.png"></div></a>
+                <div class="clear"></div>
+
+                <a title="Редактировать"><div class="line"><div class="label-color red">Красная</div><img src="~/Content/Image/edit.png"></div></a>
+                <div class="clear"></div>
+
+                <a title="Редактировать"><div class="line"><div class="label-color yellow">Желтая</div><img src="~/Content/Image/edit.png"></div></a>
+                <div class="clear"></div>
+
+                <div class="line new"><div class="label-color"><img src="~/Content/Image/plus.png">Создать новую метку...</div></div>
+                <div class="clear"></div>
+            </div>
+            <div class="newlabel" id="newLab">
+                <h2>Создание метки</h2>
+                <div><textarea class="title">Введите название метки...</textarea></div>
+                <div class="chooselabel-container">
+                    <div class="chooselabel pink" data-choose-label="1"><img src="~/Content/Image/success.png"></div>
+                    <div class="chooselabel blue"><img src="~/Content/Image/success.png"></div>
+                    <div class="chooselabel orange"><img src="~/Content/Image/success.png"></div>
+                    <div class="chooselabel red"><img src="~/Content/Image/success.png"></div>
+                    <div class="chooselabel indigo"><img src="~/Content/Image/success.png"></div>
+                    <div class="chooselabel lime"><img src="~/Content/Image/success.png"></div>
+                    <div class="chooselabel cyan"><img src="~/Content/Image/success.png"></div>
+                    <div class="chooselabel amber"><img src="~/Content/Image/success.png"></div>
+                    <div class="chooselabel bluegrey"><img src="~/Content/Image/success.png"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="button"><button>Создать</button></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="create-sticker" id="markcst">
+        <!--<div class="label green"><span class="label-name">Обучение</span></div>-->
+        <div class="close"><img src="~/Content/Image/close.png"></div>
+
+        <div class="block-labels add">
+            <div class="block-filter-content">
+                @using (Ajax.BeginForm("markAdd", "Home", new AjaxOptions { UpdateTargetId = "adm", HttpMethod = "Post", InsertionMode = InsertionMode.InsertAfter }))
+                {
+                    <h2>Добавление метки</h2>
+                            <!--      <a title="Редактировать"><div class="line"><div class="label-color green" onclick="addMar('green', 'Зеленая')">Зеленая</div><img src="~/Content/Image/edit.png"></div></a>
+                            <div class="clear"></div>
+                            <a title="Редактировать"><div class="line"><div class="label-color blue" onclick="addMar('blue', 'Синяя')">Синяя</div><img src="~/Content/Image/edit.png"></div></a>
+                            <div class="clear"></div>
+                            <a title="Редактировать"><div class="line"><div class="label-color red" onclick="addMar('red', 'Красная')">Красная</div><img src="~/Content/Image/edit.png"></div></a>
+                            <div class="clear"></div>
+                            <a title="Редактировать"><div class="line"><div class="label-color yellow" onclick="addMar('yellow', 'Желтая')">Желтая</div><img src="~/Content/Image/edit.png"></div></a>
+                            <div class="clear"></div>-->
+                            <div class="addM"><input type="text" class="title" name="Title" placeholder="Название"></div>
+                            <div class="addM"><input type="text" class="title" name="Back" placeholder="Цвет фона"></div>
+                            <div class="addM"><input type="text" class="title" name="Letter" placeholder="Цвет букв"></div>
+                            <div class="button"><button type="submit">Сохранить</button></div>
+                }
+            </div>
+        </div>
+
+
+        @using (Ajax.BeginForm("AddStiker", "Home", new AjaxOptions { UpdateTargetId = "stN", HttpMethod = "Post", InsertionMode = InsertionMode.InsertAfter }))
+        {
+            <div id="adm"><div class="label new add"><a title="Добавить метку"><img src="~/Content/Image/plus.png"></a></div></div>
+            <div><textarea class="title" rows="1" name="TitleSt" placeholder="Введите название стикера..."></textarea></div>
+                <div><textarea class="description" name="DescrSt" rows="5" placeholder="Введите описание стикера..."></textarea></div>
+                <div class="attachments">
+                    <h2>Вложения</h2>
+                    <!--<div class="attach">
+                        <div class="file-icon"><img src="~/Content/Image/doc.png"></div>
+                        <p class="file-name">Проект доска задач</p>
+                        <p class="file-date">добавлено 12.11.2016</p>
+                    </div>-->
+                    <div class="attach new">
+                        <div class="file-icon"><img src="~/Content/Image/plus.png">Добавить вложение...</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <a title="Копировать стикер"><div class="button square"><button><img src="~/Content/Image/copy.png"></button></div></a>
+                <a title="Удалить стикер"><div class="button square"><button><img src="~/Content/Image/trash.png"></button></div></a>
+                <div class="button"><button>Сохранить</button></div>
+                <div class="clear"></div>
+        }
+    </div>
+
+    <div class="col" id="colIde">
+        <div class="title"><h1>ИДЕИ</h1></div>
+        <div id="stN"></div>
+        @foreach (var oneItem in Model[0])
+        {
+            <div class="sticker">
+                @foreach (var onemark in oneItem.liMark)
+                {
+                    <div class="label" style="background: @onemark.Color_Background; color: #FFFFFF"><span class="label-name">@onemark.Title</span></div>
+                }
+                <div class="close"><img src="~/Content/Image/close.png"></div>
+                <h2 class="title">@oneItem.Title</h2>
+                <p class="date">19.11.2016</p>
+                <div class="indicator"></div>
+                <p class="description">@oneItem.Description</p>
+                <p class="icons">
+                    <img src="~/Content/Image/attachments.png">0 <img src="~/Content/Image/chat.png">0
+                </p>
+                <div class="attachments">
+                </div>
+                <div class="members">
+                </div>
+                <div class="comments">
+                    <h2>Комментарии</h2>
+                    <div class="new-comment">
+                        <div class="ava"><img src="~/Content/Image/girl1.png"></div>
+                        <textarea type="text" placeholder="Введите текст комментария"></textarea>
+                    </div>
+                    <div class="button"><button>Отправить</button></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+        <!--
+                    <div class="sticker">
+                          <div class="label green"><span class="label-name">Обучение</span></div>
+                          <div class="close"><img src="~/Content/Image/close.png"></div>
+                          <h2 class="title">Метки</h2>
+                          <p class="date">19.11.2016</p>
+                          <div class="indicator"></div>
+                          <p class="description">Стикерам можно присваивать метки. Метки - это категории. Стикер может не иметь ни одной метки, а может иметь сразу несколько.</p>
+                          <p class="icons"><img src="~/Content/Image/attachments.png">0 <img src="~/Content/Image/chat.png">0</p>
+                          <div class="attachments">
+                          </div>
+                          <div class="members">
+                          </div>
+                          <div class="comments">
+                              <h2>Комментарии</h2>
+                              <div class="new-comment">
+                                  <div class="ava"><img src="~/Content/Image/girl1.png"></div>
+                                  <textarea type="text" placeholder="Введите текст комментария"></textarea>
+                              </div>
+                              <div class="button"><button>Отправить</button></div>
+                              <div class="clear"></div>
+                          </div>
+                      </div>
+
+                      <div class="sticker">
+                          <div class="label green"><span class="label-name">Обучение</span></div>
+                          <div class="label blue"><span class="label-name">Дизайн</span></div>
+                          <div class="close"><img src="~/Content/Image/close.png"></div>
+                          <h2 class="title">Метки. Часть 2</h2>
+                          <p class="date">21.11.2016</p>
+                          <div class="indicator"></div>
+                          <p class="description">Это стикер с 2 метками.</p>
+                          <p class="icons"><img src="~/Content/Image/attachments.png">0 <img src="~/Content/Image/chat.png">0</p>
+                          <div class="attachments">
+                          </div>
+                          <div class="members">
+                          </div>
+                          <div class="comments">
+                              <h2>Комментарии</h2>
+                              <div class="new-comment">
+                                  <div class="ava"><img src="~/Content/Image/girl1.png"></div>
+                                  <textarea type="text" placeholder="Введите текст комментария"></textarea>
+                              </div>
+                              <div class="button"><button>Отправить</button></div>
+                              <div class="clear"></div>
+                          </div>
+                      </div>
+
+                      <div class="sticker">
+                          <div class="label green"><span class="label-name">Обучение</span></div>
+                          <div class="close"><img src="~/Content/Image/close.png"></div>
+                          <h2 class="title">Участники</h2>
+                          <p class="date">21.11.2016</p>
+                          <div class="indicator"></div>
+                          <p class="description">Можно назначать людей, ответственных за определенную задачу. Это отображается на стикере.<br> За эту задачу отвечают 3 человека.</p>
+                          <p class="icons"><img src="~/Content/Image/attachments.png">0 <img src="~/Content/Image/chat.png">0</p>
+                          <div class="attachments">
+                          </div>
+                          <div class="members">
+                              <div class="guy"><img src="~/Content/Image/boy2.png"></div>
+                              <div class="guy"><img src="~/Content/Image/girl3.png"></div>
+                              <div class="guy"><img src="~/Content/Image/girl5.png"></div>
+                              <div class="clear"></div>
+                          </div>
+                          <div class="comments">
+                              <h2>Комментарии</h2>
+                              <div class="new-comment">
+                                  <div class="ava"><img src="~/Content/Image/girl1.png"></div>
+                                  <textarea type="text" placeholder="Введите текст комментария"></textarea>
+                              </div>
+                              <div class="button"><button>Отправить</button></div>
+                              <div class="clear"></div>
+                          </div>
+                      </div>
+        -->
+        <div class="sticker new" id="stN">
+            <h2><img src="~/Content/Image/plus.png">Создать новый стикер...</h2>
+        </div>
+    </div>
+    <div class="col" id="colPros">
+        <div class="title"><h1>В ПРОЦЕССЕ</h1></div>
+        @foreach (var oneItem in Model[1])
+        {
+            <div class="sticker">
+                @foreach (var onemark in oneItem.liMark)
+                {
+                    <div class="label" style="background: @onemark.Color_Background; color: #FFFFFF"><span class="label-name">@onemark.Title</span></div>
+                }
+                <div class="close"><img src="~/Content/Image/close.png"></div>
+                <h2 class="title">@oneItem.Title</h2>
+                <p class="date">19.11.2016</p>
+                <div class="indicator"></div>
+                <p class="description">@oneItem.Description</p>
+                <p class="icons">
+                    <img src="~/Content/Image/attachments.png">0 <img src="~/Content/Image/chat.png">0
+                </p>
+                <div class="attachments">
+                </div>
+                <div class="members">
+                </div>
+                <div class="comments">
+                    <h2>Комментарии</h2>
+                    <div class="new-comment">
+                        <div class="ava"><img src="~/Content/Image/girl1.png"></div>
+                        <textarea type="text" placeholder="Введите текст комментария"></textarea>
+                    </div>
+                    <div class="button"><button>Отправить</button></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <div class="col" id="colDone">
+        <div class="title"><h1>СДЕЛАНО</h1></div>
+
+        @foreach (var oneItem in Model[2])
+            {
+            <div class="sticker">
+                @foreach (var onemark in oneItem.liMark)
+                {
+                    <div class="label" style="background: @onemark.Color_Background; color: #FFFFFF"><span class="label-name">@onemark.Title</span></div>
+                }
+                <div class="close"><img src="~/Content/Image/close.png"></div>
+                <h2 class="title">@oneItem.Title</h2>
+                <p class="date">19.11.2016</p>
+                <div class="indicator"></div>
+                <p class="description">@oneItem.Description</p>
+                <p class="icons">
+                    <img src="~/Content/Image/attachments.png">0 <img src="~/Content/Image/chat.png">0
+                </p>
+                <div class="attachments">
+                </div>
+                <div class="members">
+                </div>
+                <div class="comments">
+                    <h2>Комментарии</h2>
+                    <div class="new-comment">
+                        <div class="ava"><img src="~/Content/Image/girl1.png"></div>
+                        <textarea type="text" placeholder="Введите текст комментария"></textarea>
+                    </div>
+                    <div class="button"><button>Отправить</button></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+
+
+        <div class="sticker">
+            <div class="label red"><span class="label-name">Дизайн</span></div>
+            <div class="label yellow"><span class="label-name">Тестирование</span></div>
+            <div class="label green"><span class="label-name">Управление</span></div>
+            <div class="label blue"><span class="label-name">Разработка</span></div>
+            <div class="close"><img src="~/Content/Image/close.png"></div>
+            <h2 class="title">Декомпозиция</h2>
+            <p class="date">19.11.2016</p>
+            <div class="indicator"></div>
+            <p class="description">Стикерам можно присваивать метки. Метки - это категории. Стикер может не иметь ни одной метки, а может иметь сразу несколько.</p>
+            <p class="icons"><img src="~/Content/Image/attachments.png">1 <img src="~/Content/Image/chat.png">4</p>
+            <div class="attachments">
+                <h2>Вложения</h2>
+                <div class="attach">
+                    <div class="file-icon"><img src="~/Content/Image/doc.png"></div>
+                    <p class="file-name">Проект доска задач</p>
+                    <p class="file-date">добавлено 12.11.2016</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="members">
+                <div class="guy"><img src="~/Content/Image/boy1.png"></div>
+                <div class="guy"><img src="~/Content/Image/girl2.png"></div>
+                <div class="guy"><img src="~/Content/Image/girl3.png"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="comments">
+                <h2>Комментарии</h2>
+                <div class="new-comment">
+                    <div class="ava"><img src="~/Content/Image/girl1.png"></div>
+                    <textarea type="text" placeholder="Введите текст комментария"></textarea>
+                </div>
+                <div class="button"><button>Отправить</button></div>
+                <div class="clear"></div>
+                <div class="comment">
+                    <div class="ava"><img src="~/Content/Image/girl5.png"></div>
+                    <div class="textarea">
+                        <p class="name">Аня</p>
+                        <p>Отлично! Давайте сделаем это!!!</p>
+                        <p class="answer-button">Ответить</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="comment">
+                    <div class="ava"><img src="~/Content/Image/boy5.png"></div>
+                    <div class="textarea">
+                        <p class="name">Петя</p>
+                        <p>ага, легко)</p>
+                        <p class="answer-button">Ответить</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="comment answer">
+                    <div class="ava"><img src="~/Content/Image/boy1.png"></div>
+                    <div class="textarea">
+                        <p class="name">Вася</p>
+                        <p>вот ты и делай, умник</p>
+                        <p class="answer-button">Ответить</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="comment">
+                    <div class="ava"><img src="~/Content/Image/girl2.png"></div>
+                    <div class="textarea">
+                        <p class="name">Оля</p>
+                        <p>лол</p>
+                        <p class="answer-button">Ответить</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

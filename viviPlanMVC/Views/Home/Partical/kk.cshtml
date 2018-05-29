@@ -1,0 +1,21 @@
+﻿                <!--<div class="label green"><span class="label-name">Обучение</span></div>--><div id="adm"><div class="label new add"><a title="Добавить метку"><img src="~/Content/Image/plus.png"></a></div></div>
+<div class="block-labels add">
+    <div class="block-filter-content">
+        @using (Ajax.BeginForm("markAdd", "Home", new AjaxOptions { UpdateTargetId = "adm", HttpMethod = "Post", InsertionMode = InsertionMode.InsertAfter }))
+        {
+            <h2>Добавление метки</h2>
+                            <!--      <a title="Редактировать"><div class="line"><div class="label-color green" onclick="addMar('green', 'Зеленая')">Зеленая</div><img src="~/Content/Image/edit.png"></div></a>
+                            <div class="clear"></div>
+                            <a title="Редактировать"><div class="line"><div class="label-color blue" onclick="addMar('blue', 'Синяя')">Синяя</div><img src="~/Content/Image/edit.png"></div></a>
+                            <div class="clear"></div>
+                            <a title="Редактировать"><div class="line"><div class="label-color red" onclick="addMar('red', 'Красная')">Красная</div><img src="~/Content/Image/edit.png"></div></a>
+                            <div class="clear"></div>
+                            <a title="Редактировать"><div class="line"><div class="label-color yellow" onclick="addMar('yellow', 'Желтая')">Желтая</div><img src="~/Content/Image/edit.png"></div></a>
+                            <div class="clear"></div>-->
+                            <div class="addM"><input type="text" class="title" name="Title" placeholder="Название"></div>
+                            <div class="addM"><input type="text" class="title" name="Back" placeholder="Цвет фона"></div>
+                            <div class="addM"><input type="text" class="title" name="Letter" placeholder="Цвет букв"></div>
+                            <div class="button"><button type="submit">Сохранить</button></div>
+        }
+    </div>
+</div>

@@ -1,0 +1,91 @@
+﻿@model viviPlanMVC.Models.User
+@{
+    ViewBag.Title = "Вход/Регистрация - viviPlan";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+        <div class="overlay2"></div>
+        <img class="form-logo" src="~/Content/Image/logo.png">
+<div class="modal-content"> </div>
+
+    <div class="form">
+        <div class="tab-name inactive"><h2>Вход</h2></div>
+        <div class="tab-name "><h2>Регистрация</h2></div>
+        <div class="clear"></div>
+        <div class="z"></div>
+        <div class="tab-content">
+
+
+            <form class="loginForm" action="/Home/Authorization" method="get">
+                <div class="tab-img">
+                    <img src="~/Content/Image/">
+                    <p>
+                        Тут тоже будет енот Вася. Но пока он отдыхает ;)
+                        <h2>Добро пожаловать в viviPlan!</h2>
+                    </p>
+                </div>
+                <div class="field">
+                    <label>Логин:</label>
+                    <div class="input"><input type="text" name="Login" value="" /></div>
+                </div>
+                <div class="field">
+                    <a id="forgot">Забыли пароль?</a>
+                    <label>Пароль:</label>
+                    <div class="input"><input type="password" value="" name="Password" /></div>
+                </div>
+                <div class="submit">
+                    <button type="submit">Вход</button>
+                </div>
+            </form>
+
+
+            <form class="loginForm" action="/Home/CreateUser" method="post">
+                <div class="tab-img">
+                    <img src="~/Content/Image/racoon.png">
+                    <p>
+                        Это енот Вася. Он ничего не успевает и у него горит дедлайн. <br><br>
+                        Не будь как Вася.
+                        <h2>Регистрируйся в viviPlan!</h2>
+                    </p>
+                </div>
+                <div class="field">
+                    <label>Имя пользователя:</label>
+                    <div class="input">
+                        <input type="text" id="Name" name="Name" value="" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label>E-mail:</label>
+                    <div class="input"><input type="email" id="Login" name="Login" value="" /></div>
+                </div>
+                <div class="field">
+                    <label>Пароль:</label>
+                    <div class="input"><input type="password" id="Password" name="Password" value="" /></div>
+                </div>
+                <div class="submit">
+                    <button type="submit">Регистрация</button>
+                </div>
+            </form>
+
+
+        </div>
+        <form class="loginForm confirm">
+            <div class="close"><img src="~/Content/Image/close.png"></div>
+            <div class="tab-img">
+                <h2>Забыл пароль?</h2>
+                <img src="~/Content/Image/racoon.png">
+                <p>
+                    Ничего страшного! <br>
+                    Мы можем прислать его на email!
+                </p>
+            </div>
+            <div class="field">
+                <label>E-mail:</label>
+                <div class="input"><input type="email" name="" value="" /></div>
+            </div>
+            <div class="submit">
+                <button type="submit" id="close">Отправить</button>
+            </div>
+        </form>
+    </div>

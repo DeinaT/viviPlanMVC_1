@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "Выбор доски пользователя";
+}
+@model List<viviPlanMVC.Models.Boards>
+
+<div class="overlay"></div>
+<div class="overlay2"></div>
+<div class="overlay4"></div>
+
+<div class="top-title">
+    <h2><img class="logo" src="~/Content/Image/logo.png"></h2>
+</div>
+
+<div class="panel-label">
+    <button class="cmn-toggle-switch cmn-toggle-switch__htx">
+        <span>toggle menu</span>
+    </button>
+</div>
+
+<div class="panel">
+    <div class="avatar" id="photoAv"></div>
+    <div class="name" id="name_out"></div>
+    <div class="list">
+        <div class="filter-link"><img src="~/Content/Image/filter.png">Фильтр</div>
+        <div class="labels-link"><img src="~/Content/Image/tag.png">Метки</div>
+        <div><img src="~/Content/Image/settings.png">Настройки</div>
+        <div class="separator"></div>
+        <a href="forms.html"><div><img src="~/Content/Image/exit.png">Выход</div></a>
+    </div>
+</div>
+
+<div class="panel filter">
+    <div class="name"><h1>Фильтр</h1><img class="close-cross" src="~/Content/Image/close.png"></div>
+    <div class="block-filter">
+        <div class="block-filter-title filter-label"><h2>По меткам</h2></div>
+        <div class="block-filter-content">
+            <div class="line"><label><input type="checkbox" /><div class="label-color green"></div>Зеленая</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" /><div class="label-color blue"></div>Синяя</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" /><div class="label-color red"></div>Красная</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" /><div class="label-color yellow"></div>Желтая</label></div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="block-filter-title filter-time"><h2>По сроку</h2></div>
+        <div class="block-filter-content">
+            <div class="line"><label><input type="checkbox" />Срок истекает в течение суток</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" />Срок истекает в течение недели</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" />Срок истекает в течение месяца</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" />Просроченные</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" />Без срока</label></div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="block-filter-title filter-member"><h2>По участникам</h2></div>
+        <div class="block-filter-content">
+            <div class="line"><label><input type="checkbox" /><div class="guy filter"><img src="~/Content/Image/girl1.png"></div>Маша</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" /><div class="guy filter"><img src="~/Content/Image/girl3.png"></div>Енот Вася</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" /><div class="guy filter"><img src="~/Content/Image/boy5.png"></div>Коля</label></div>
+            <div class="clear"></div>
+
+            <div class="line"><label><input type="checkbox" /><div class="guy filter"><img src="~/Content/Image/boy3.png"></div>Саня</label></div>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+</div>
+
+<div class="panel labels">
+    <div class="name"><h1>Метки</h1><img class="close-cross" src="~/Content/Image/close.png"></div>
+    <div class="block-labels">
+        <div class="search"><input type="search" placeholder="Поиск меток..."></div>
+
+
+        <div class="block-filter-content">
+            <a href="#" title="Редактировать"><div class="line"><div class="label-color green">Зеленая</div><img src="~/Content/Image/edit.png"></div></a>
+            <div class="clear"></div>
+
+            <a href="#" title="Редактировать"><div class="line"><div class="label-color blue">Синяя</div><img src="~/Content/Image/edit.png"></div></a>
+            <div class="clear"></div>
+
+            <a href="#" title="Редактировать"><div class="line"><div class="label-color red">Красная</div><img src="~/Content/Image/edit.png"></div></a>
+            <div class="clear"></div>
+
+            <a href="#" title="Редактировать"><div class="line"><div class="label-color yellow">Желтая</div><img src="~/Content/Image/edit.png"></div></a>
+            <div class="clear"></div>
+
+            <div class="line new"><div class="label-color"><img src="~/Content/Image/plus.png">Создать новую метку...</div></div>
+            <div class="clear"></div>
+
+        </div>
+
+    </div>
+</div>
+<div class="create-sticker">
+    <div class="close"><img src="~/Content/Image/close.png"></div>
+    <form accept-charset="utf-8" action="/Home/CreateBroard" method="post">
+        <div><textarea class="title" id="title_board" name="namebroard" rows="1">Введите название доски...</textarea></div>
+        <div><textarea class="description" id="dec_board" name="descr" rows="5">Введите описание доски...</textarea></div>
+
+        <a title="Копировать стикер"><div class="button square"><button><img src="~/Content/Image/copy.png"></button></div></a>
+        <a title="Удалить стикер"><div class="button square"><button name="kkk" value="delete"><img src="~/Content/Image/trash.png"></button></div></a>
+        <div class="button"><button type="submit" name="kkk" value="save">Сохранить</button></div>
+    </form>
+    <div class="clear"></div>
+
+</div>
+<link href="~/Content/css/styles.css" rel="stylesheet" />
+<div class="main" id="main_broad">
+
+    @foreach (var oneItem in Model)
+    {
+        <a>
+            <div class="board">
+                <div class="close"><img src="~/Content/Image/close.png"></div><h2 class="title">@oneItem.Title</h2> <p class="description">@oneItem.Description</p>
+                <a title="Удалить стикер" />
+                <div class="button square"><button><img src="~/Content/Image/trash.png"></button></div><div class="button">
+                    <button name="id" value=@oneItem.Id onclick="location.href='@Url.Action("newTable/"+@oneItem.Id, "Home")'"> Открыть</button>
+                </div>
+            </div>
+        </a>
+    }
+    <!--
+    <a>
+        <div class="board">
+
+            <div class="close"><img src="~/Content/Image/close.png"></div><h2 class="title">Проект "viviPLan"</h2> <p class="description">Типо описание</p>
+
+            <a title="Удалить стикер"/>
+                <div class="button square"><button  onclick="location.href='@Url.Action("newTable", "HomeController")'"><img src="~/Content/Image/trash.png"></button></div>
+            <div class="button"><button>Сохранить</button></div>
+        </div>
+    </a>
+    -->
+
+    <a><div class="board new"><h2><img src="~/Content/Image/plus.png">Создать новую доску...</h2></div></a>
+
+</div>
